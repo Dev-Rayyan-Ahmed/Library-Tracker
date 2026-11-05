@@ -11,14 +11,7 @@ def main():
         if choice == "0":
             print("Goodbye!")
             break
-        if choice == "1":
-            title = input("Title: ")
-            author = input("Author: ")
-            if title in books:
-                print(f'"{title}" is already in the library.')
-            else:
-                books[title] = {"author": author, "available": True}
-                print(f'Added "{title}".')    
+    
         else:
             print("Invalid option.")
 
