@@ -11,6 +11,15 @@ def main():
         if choice == "0":
             print("Goodbye!")
             break
+        elif choice == "4":
+            title = input("Title: ")
+            if title not in books:
+                print(f'No book titled "{title}".')
+            elif books[title]["available"]:
+                print(f'"{title}" is not borrowed.')
+            else:
+                books[title]["available"] = True
+                print(f'You returned "{title}".')    
         elif choice == "3":
             title = input("Title: ")
             lower_title = title.lower()
