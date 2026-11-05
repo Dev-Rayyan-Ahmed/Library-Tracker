@@ -11,6 +11,24 @@ def main():
         if choice == "0":
             print("Goodbye!")
             break
+        elif choice == "1":
+            title = input("Title: ")
+            author = input("Author: ")
+            lower_title = title.lower()
+            
+            if any(k.lower() == lower_title for k in books.keys()):
+                print(f'"{title}" is already in the library.')
+            else:
+                books[title] = {"author": author, "available": True}
+                print(f'Added "{title}".')
+                
+        elif choice == "2":
+            if not books:
+                print("There are no books.")
+            else:
+                for t, info in books.items():
+                    status = "Available" if info["available"] else "Borrowed"
+                    print(f'{t} by {info["author"]}\n{status}')
         elif choice == "4":
             title = input("Title: ")
             if title not in books:
