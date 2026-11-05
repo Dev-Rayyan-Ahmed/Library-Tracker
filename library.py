@@ -11,8 +11,22 @@ def main():
         if choice == "0":
             print("Goodbye!")
             break
+        elif choice == "3":
+            title = input("Title: ")
+            lower_title = title.lower()
+            found_key = next((k for k in books.keys() if k.lower() == lower_title), None)
+            
+            if not found_key:
+                print(f'No book titled "{title}".')
+            elif not books[found_key]["available"]:
+                print(f'"{title}" is already borrowed.')
+            else:
+                books[found_key]["available"] = False
+                print(f'You borrowed "{title}".')
         else:
             print("Invalid option.")
 
 if __name__ == "__main__":
     main()
+
+# testing git changes
