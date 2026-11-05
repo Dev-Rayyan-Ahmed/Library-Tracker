@@ -4,6 +4,11 @@ books = {}  # title -> {"author": str, "available": bool}
 def show_menu():
     print("\n=== Library Tracker ===")
     print("0. Exit")
+    print("1. Add a Book")
+    print("2. List all Book")
+    print("3. Borrow Book")
+    print("4. return a book")
+
 def main():
     while True:
         show_menu()
