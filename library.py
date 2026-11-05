@@ -11,14 +11,18 @@ def main():
         if choice == "0":
             print("Goodbye!")
             break
-        elif choice == "1":
+        elif choice == "3":
             title = input("Title: ")
-            author = input("Author: ")
-            if title in books:
-                print(f'"{title}" is already in the library.')
+            lower_title = title.lower()
+            found_key = next((k for k in books.keys() if k.lower() == lower_title), None)
+            
+            if not found_key:
+                print(f'No book titled "{title}".')
+            elif not books[found_key]["available"]:
+                print(f'"{title}" is already borrowed.')
             else:
-                books[title] = {"author": author, "available": True}
-                print(f'Added "{title}".')
+                books[found_key]["available"] = False
+                print(f'You borrowed "{title}".')
         else:
             print("Invalid option.")
 
